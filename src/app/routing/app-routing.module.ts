@@ -14,7 +14,7 @@ const routes: Routes = [
   {
     path: 'TrackOrder',
     component: TrackOrderComponent
-  }, 
+  },
   {
     path: 'NewOrder',
     component: NewOrderComponent

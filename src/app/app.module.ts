@@ -7,7 +7,8 @@ import { CustomMaterialModule } from './config/material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { PagesModule } from './pages'; 
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -19,9 +20,11 @@ import { ReactiveFormsModule } from '@angular/forms';
     BrowserAnimationsModule,
     CustomMaterialModule,
     PagesModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule,
   ],
   providers: [],
+  entryComponents: [PagesModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

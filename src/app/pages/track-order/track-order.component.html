@@ -1,1 +1,13 @@
-<p>track-order works!</p>
+<h4>Enter Your AWB number:</h4>
+<br>
+<div class="container">
+    <form>
+        <mat-form-field class="example-full-width">
+            <mat-label>AWB number</mat-label>
+            <input matInput #AWBnumber maxlength="4" placeholder="Ex. from 1 to 9999" >
+            <mat-hint align="end">{{AWBnumber.value.length}} / 4</mat-hint>
+        </mat-form-field>
+        <br>
+        <button mat-flat-button (click)="AWBnumber.value.length ? openDialog():null" color="primary">Check status</button>
+    </form>
+</div>
