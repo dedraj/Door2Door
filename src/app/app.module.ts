@@ -1,30 +1,25 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule } from './routing/app-routing.module';
 import { AppComponent } from './app.component';
+import { CustomMaterialModule } from './config/material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { CustomMaterialModule } from './config/material.module';
-import { NewOrderComponent } from './new-order/new-order.component';
-import { TrackOrderComponent } from './track-order/track-order.component';
-import { ContactUsComponent } from './contact-us/contact-us.component';
-import { HomeComponent } from './home/home.component';
- 
+import { PagesModule } from './pages'; 
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NewOrderComponent,
-    TrackOrderComponent,
-    ContactUsComponent,
-    HomeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    CustomMaterialModule
+    CustomMaterialModule,
+    PagesModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

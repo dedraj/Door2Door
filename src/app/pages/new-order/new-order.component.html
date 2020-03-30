@@ -1,0 +1,131 @@
+<div class="container">
+    <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)" class="form">
+    <h1>New Order</h1>
+      <!-- <label for="fname">Name</label>
+      <input type="text" id="fname" name="Name" ><br><br> -->
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Name" formControlName="name">
+        <mat-error *ngIf="!name.valid && name.touched">
+          {{ titleAlert }}
+        </mat-error>
+      </mat-form-field>
+      <br>
+      <!-- <input type="email" id="email" name="email address"><br><br> -->
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Emailaddress" formControlName="email">
+        <mat-error *ngIf="!formGroup.controls['email'].valid && formGroup.controls['email'].touched">
+          {{ getErrorEmail() }}
+        </mat-error>
+      </mat-form-field>
+      <!-- <label for="contact number">Contact number </label>
+      <input type="tel" id="contact number" name="contact number"><br><br> -->
+      <br>
+      <mat-form-field class="full-width">
+        <mat-label>Telephone</mat-label>
+        <span matPrefix>+1 &nbsp;</span>
+        <input type="tel" matInput placeholder="555-555-1234">
+        <mat-icon matSuffix>mode_edit</mat-icon>
+      </mat-form-field>
+      <br>
+       Pick-up City : 
+       <!-- <select value = "...">
+           <option value="Jaipur">Jaipur</option>
+           <option value="Mumbai">mumbai</option>
+           <option value="pune">pune</option>
+           <option value="Gujrat">Gujrat</option>
+           <option value="delhi">Delhi</option>
+        </select><br><br> -->
+        <br>
+        <table class="full-width" cellspacing="0"><tr>
+            <td><mat-form-field class="full-width">
+                <mat-label>Select city</mat-label>
+                <mat-select [formControl]="selectCity" required>
+                <mat-option *ngFor="let city of cities" [value]="city.name">
+                    {{city.viewName}}
+                </mat-option>
+                </mat-select>
+                <mat-error *ngIf="selectCity.hasError('required')">Please choose an city</mat-error>
+            </mat-form-field></td>
+            <td><mat-form-field class="full-width">
+              <mat-label>State</mat-label>
+              <input matInput placeholder="Ex. California">
+            </mat-form-field></td>
+            <td><mat-form-field class="full-width">
+              <mat-label>Postal Code</mat-label>
+              <input matInput #postalCode maxlength="5" placeholder="Ex. 94105" value="94043">
+              <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>
+            </mat-form-field></td>
+          </tr></table>
+          <br>
+        <!-- <label for="Address">Pick-up Address</label><br>
+      <textarea id="address" name="Address" placeholder="Write address" style="height:50px"></textarea><br><br> -->
+      <mat-form-field class="full-width">
+        <mat-label>Address</mat-label>
+        <textarea matInput placeholder="Ex. 100 Main St"></textarea>
+      </mat-form-field>
+      <br>
+      <!-- <label for="Rname">Receiver's Name</label> -->
+      <!-- <input type="text" id="Rname" name="Name" ><br><br>
+      <label for="contact number of Receiver">Receiver's Contact Number </label>
+      <input type="tel" id="contact number of receiver" name="Receiver's contact number"><br><br> -->
+
+    
+      Drop-off City : 
+      <!-- <select>
+          <option value="Jaipur">Jaipur</option>
+          <option value="Mumbai">mumbai</option>
+          <option value="pune">pune</option>
+          <option value="Gujrat">Gujrat</option>
+          <option value="delhi">Delhi</option>
+       </select><br><br> -->
+       <table class="full-width" cellspacing="0"><tr>
+        <td><mat-form-field class="full-width">
+            <mat-label>Select city</mat-label>
+            <mat-select [formControl]="selectDropCity" required>
+            <mat-option *ngFor="let city of cities" [value]="city.name">
+                {{city.viewName}}
+            </mat-option>
+            </mat-select>
+            <mat-error *ngIf="selectDropCity.hasError('required')">Please choose an city</mat-error>
+        </mat-form-field></td>
+        <td><mat-form-field class="full-width">
+          <mat-label>State</mat-label>
+          <input matInput placeholder="Ex. California">
+        </mat-form-field></td>
+        <td><mat-form-field class="full-width">
+          <mat-label>Postal Code</mat-label>
+          <input matInput #postalCode maxlength="5" placeholder="Ex. 94105" value="94043">
+          <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>
+        </mat-form-field></td>
+      </tr></table>
+      <br>
+       <!-- <label for="Receiver's address">Receiver's Address</label><br>
+      <textarea id="address" name="Addresst" placeholder="Write address"  style="height:50px"></textarea><br><br> -->
+      <mat-form-field class="full-width">
+        <mat-label>Receiver's Address</mat-label>
+        <textarea matInput placeholder="Ex. 100 Main St"></textarea>
+      </mat-form-field>
+      <br>
+      <label for="Weight">Weight:</label>
+      <input type="number" id="weight" name="weight"><br><br>
+      
+      Dimensions :
+      <br>
+      <label for="length">length:</label>
+      <input type="number" id="length" name="length">
+      <label for="breadth">breadth:</label>
+      <input type="number" id="breadth" name="breadth">
+      <label for="Height">Height:</label>
+      <input type="number" id="Height" name="Height"><br><br>
+      
+
+       Delivery Options : 
+       <select>
+           <option value="Standard Delivery">Standard Delivery</option>
+           <option value="Express Delivery">Express Delivery</option>
+       </select><br><br>
+       <button type="submit">Submit</button>
+
+
+        </form>
+  </div>
