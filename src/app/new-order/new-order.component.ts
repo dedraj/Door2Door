@@ -5,11 +5,6 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './new-order.component.html',
   styleUrls: ['./new-order.component.css']
 })
-export class NewOrderComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+// export class NewOrderComponent {}
 
 }
