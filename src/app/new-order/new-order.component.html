@@ -1,0 +1,83 @@
+<!-- <div class="container">
+    <form >
+    <h1>New Order</h1>
+      <label for="fname">Name</label>
+      <input type="text" id="fname" name="Name" ><br><br>
+      <label for="email">E-mail Id:</label>
+      <input type="email" id="email" name="email address"><br><br>
+      <label for="contact number">Contact number </label>
+      <input type="tel" id="contact number" name="contact number"><br><br>
+       Pick-up City : 
+       <select value = "...">
+           <option value="Jaipur">Jaipur</option>
+           <option value="Mumbai">mumbai</option>
+           <option value="pune">pune</option>
+           <option value="Gujrat">Gujrat</option>
+           <option value="delhi">Delhi</option>
+        </select><br><br>
+
+        <label for="Address">Pick-up Address</label><br>
+      <textarea id="address" name="Address" placeholder="Write address" style="height:50px"></textarea><br><br>
+      <label for="Rname">Receiver's Name</label>
+      <input type="text" id="Rname" name="Name" ><br><br>
+      <label for="contact number of Receiver">Receiver's Contact Number </label>
+      <input type="tel" id="contact number of receiver" name="Receiver's contact number"><br><br>
+    
+      Drop-off City : 
+      <select>
+          <option value="Jaipur">Jaipur</option>
+          <option value="Mumbai">mumbai</option>
+          <option value="pune">pune</option>
+          <option value="Gujrat">Gujrat</option>
+          <option value="delhi">Delhi</option>
+       </select><br><br>
+       <label for="Receiver's address">Receiver's Address</label><br>
+      <textarea id="address" name="Addresst" placeholder="Write address"  style="height:50px"></textarea><br><br>
+      
+      <label for="Weight">Weight:</label>
+      <input type="number" id="weight" name="weight"><br><br>
+      
+      Dimensions :
+      <br>
+      <label for="length">length:</label>
+      <input type="number" id="length" name="length">
+      <label for="breadth">breadth:</label>
+      <input type="number" id="breadth" name="breadth">
+      <label for="Height">Height:</label>
+      <input type="number" id="Height" name="Height"><br><br>
+      
+
+       Delivery Options : 
+       <select>
+           <option value="Standard Delivery">Standard Delivery</option>
+           <option value="Express Delivery">Express Delivery</option>
+       </select><br><br>
+       <button type="submit">Submit</button>
+
+
+        </form>
+  </div> -->
+
+  <form>
+    <mat-form-field appearance="fill">
+        <mat-label>Name</mat-label>
+        <input matInput>
+      </mat-form-field>
+      <br>
+      <mat-form-field class="example-full-width">
+        <mat-label>Email</mat-label>
+        <input matInput [formControl]="emailFormControl" placeholder="Ex. pat@example.com">
+        <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+          Please enter a valid email address
+        </mat-error>
+        <mat-error *ngIf="emailFormControl.hasError('required')">
+          Email is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill">
+        <mat-label>Contact</mat-label>
+        <input matInput>
+      </mat-form-field>
+      <br>
+  </form>
