@@ -17,8 +17,7 @@ export class Step1Component implements OnInit{
   formGroup: FormGroup;
   titleAlert: string = 'This field is required';
   // post: any = '';
-  
-  selectCity = new FormControl('', Validators.required);
+  selectPickupCity = new FormControl('', Validators.required);
   cities: City[] = [
     {name: 'jaipur', viewName: 'Jaipur'},
     {name: 'delhi', viewName: 'Delhi'},
@@ -51,8 +50,8 @@ export class Step1Component implements OnInit{
       'name': [null, Validators.required],
       'description': [null, [Validators.required, Validators.minLength(5), Validators.maxLength(10)]],
       'validate': '',
+      'selectPickupCity':[null, Validators.required],
       'telephone1':[null, Validators.required],
-      'selectCity':[null, Validators.required],
       'state1':[null, Validators.required],
       'zip1':[null, Validators.required],
       'address1':[null, Validators.required],

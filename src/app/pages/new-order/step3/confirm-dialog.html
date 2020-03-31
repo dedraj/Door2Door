@@ -1,0 +1,38 @@
+<!-- <h1 mat-dialog-title>Favorite Animal</h1>
+<div mat-dialog-content>
+  My Order status is:
+  <ul>
+    <li>
+      <span *ngIf="data.status === 'recieved'">&#10003;</span>Request recievded
+    </li>
+    <li>
+      <span *ngIf="data.status === 'dispatched'">&#10003;</span> Unicorn
+    </li>
+    <li>
+      <span *ngIf="data.status === 'delivered'">&#10003;</span> Lion
+    </li>
+  </ul>
+</div> -->
+<div mat-dialog-content>
+  <mat-horizontal-stepper [linear]="true">
+    <mat-step label="Recieved" state="phone" >
+      <p>Your Order is Recieved</p>
+    </mat-step>
+    <mat-step label="Dispatched" state="chat">
+      <p>Order Dispatched</p>
+    </mat-step>
+    <mat-step label="Delivered" done="true  ">
+      <p>Your order Delivered</p>
+    </mat-step>
+  
+    <!-- Icon overrides. -->
+    <ng-template matStepperIcon="phone">
+      <mat-icon>call_end</mat-icon>
+    </ng-template>
+    <ng-template matStepperIcon="chat">
+      <mat-icon>forum</mat-icon>
+    </ng-template>
+  </mat-horizontal-stepper>
+  <button mat-raised-button color="primary" (click)="goForward(data)">Submit</button>
+
+</div>  

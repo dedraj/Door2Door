@@ -28,12 +28,12 @@
         <table class="full-width" cellspacing="0"><tr>
             <td><mat-form-field class="full-width">
                 <mat-label>Select city</mat-label>
-                <mat-select [formControl]="selectCity" formControlName="selectCity" required>
+                <mat-select formControlName="selectPickupCity" required>
                 <mat-option *ngFor="let city of cities" [value]="city.name">
                     {{city.viewName}}
                 </mat-option>
                 </mat-select>
-                <mat-error *ngIf="selectCity.hasError('required')">Please choose an city</mat-error>
+                <mat-error *ngIf="selectPickupCity.hasError('required')">Please choose an city</mat-error>
             </mat-form-field></td>
             <td><mat-form-field class="full-width">
               <mat-label>State</mat-label>
@@ -53,8 +53,8 @@
       <br>
     <!-- <app-text-input (outputText)="change($event)"></app-text-input> -->
     <!-- " -->
-    <div>
-      <button mat-button matStepperNext>Next</button>
+    <div class="controls">
+      <button mat-raised-button color="primary" matStepperNext>Next</button>
     </div>
   </form>
   

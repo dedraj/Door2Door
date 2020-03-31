@@ -1,17 +1,19 @@
 <div class="container">
-  <mat-horizontal-stepper [linear]="isLinear" #stepper>
-    <mat-step><!-- [stepControl]="step1" -->
+  <mat-horizontal-stepper linear #stepper>
+    <mat-step [editable]="check.isEditable" [stepControl]="step1"><!-- [stepControl]="step1" -->
       <app-step1></app-step1>
     </mat-step>
-    <mat-step>
+    <mat-step [editable]="check.isEditable" [stepControl]="step2">
       <app-step2></app-step2>
     </mat-step>
-    <mat-step>
+    <mat-step [editable]="check.isEditable" [stepControl]="step3">
+      <app-step3 [stepper]=stepper [checker]=check></app-step3>
+    </mat-step>
+    <mat-step [editable]="check.isEditable" [stepControl]="step4">
       <ng-template matStepLabel>Done</ng-template>
-      You are now done.
+      Thank You for ordering, Our team will get in touch with you soon.
       <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button (click)="stepper.reset()">Reset</button>
+        <button mat-button (click)="stepper.reset()">New Order</button>
       </div>
     </mat-step>
   </mat-horizontal-stepper>

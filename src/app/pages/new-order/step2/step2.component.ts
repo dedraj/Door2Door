@@ -18,7 +18,7 @@ export class Step2Component implements OnInit{
   titleAlert: string = 'This field is required';
   // post: any = '';
   
-  selectCity2 = new FormControl('', Validators.required);
+  selectDropCity = new FormControl('', Validators.required);
   cities: City[] = [
     {recieverName: 'jaipur', viewName: 'Jaipur'},
     {recieverName: 'delhi', viewName: 'Delhi'},
@@ -33,8 +33,8 @@ export class Step2Component implements OnInit{
     this.formGroup = this.formBuilder.group({
       extraName: ''
     });
-    const one = '1';
-    this.formService.stepReady(this.formGroup, one)
+    const two = '2';
+    this.formService.stepReady(this.formGroup, two)
   }
   ngOnInit(): void {
     this.createForm();
@@ -50,14 +50,14 @@ export class Step2Component implements OnInit{
       'recieverEmail': [null, [Validators.required, Validators.pattern(emailregex)], this.checkInUseEmail],
       'recieverName': [null, Validators.required],
       'validate': '',
-      'Telephone2':[null, Validators.required],
-      'selectCity2':[null, Validators.required],
+      'telephone2':[null, Validators.required],
+      'selectDropCity':[null, Validators.required],
       'state2':[null, Validators.required],
       'zip2':[null, Validators.required],
       'address2':[null, Validators.required],
     });
-    const one = '1';
-    this.formService.stepReady(this.formGroup, one)
+    const two = '2';
+    this.formService.stepReady(this.formGroup, two)
   } 
 
   setChangeValidate() {
@@ -76,12 +76,6 @@ export class Step2Component implements OnInit{
 
   get recieverName() {
     return this.formGroup.get('recieverName') as FormControl
-  }
-
-  checkPassword(control) {
-    let enteredPassword = control.value
-    let passwordCheck = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})/;
-    return (!passwordCheck.test(enteredPassword) && enteredPassword) ? { 'requirements': true } : null;
   }
 
   checkInUseEmail(control) {

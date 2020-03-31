@@ -1,1 +1,43 @@
-<p>step3 works!</p>
+
+<h3>Package Details:</h3>
+<form [formGroup]="formGroup" class="form">
+<!-- <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)" class="form"> -->
+    <ng-template matStepLabel>Package Details</ng-template>
+    <table class="dimention" cellspacing="0"><tr>
+        <td><mat-form-field class="dimention">
+          <mat-label>Length</mat-label>
+          <input matInput type="number" placeholder="Ex. 27" formControlName="length">
+          <span matSuffix>cm</span>
+        </mat-form-field></td>
+        <td><mat-form-field class="dimention">
+          <mat-label>Breadth</mat-label>
+          <input matInput type="number" placeholder="Ex. 40" formControlName="breadth">
+          <span matSuffix>cm</span>
+        </mat-form-field></td>
+        <td><mat-form-field class="dimention">
+          <mat-label>Height</mat-label>
+          <input matInput type="number" placeholder="Ex. 94" formControlName="height">
+          <span matSuffix>cm</span>
+        </mat-form-field></td>
+        <td><mat-form-field class="dimention">
+            <mat-label>Weight</mat-label>
+            <input matInput type="number" placeholder="Ex. 30" formControlName="weight">
+            <span matSuffix>kg</span>
+          </mat-form-field></td>
+      </tr></table>
+      <mat-form-field>
+        <mat-label>Delivery Mode</mat-label>
+        <mat-select formControlName="dMode" required>
+          <mat-option value="express">Express</mat-option>
+          <mat-option value="reguler">Regular</mat-option>
+        </mat-select>
+        <mat-hint align="end">Select your delivery mode</mat-hint>
+      </mat-form-field>
+    <!-- <app-text-input (outputText)="change($event)"></app-text-input> -->
+    <!-- " -->
+    <div class="controls">
+        <button mat-stroked-button color="primary" matStepperPrevious>Back</button>
+        <button mat-raised-button color="primary" (click)="openDialog(stepper,checker)">Submit</button>
+    </div>
+  </form>
+  

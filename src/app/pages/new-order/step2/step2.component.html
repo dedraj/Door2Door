@@ -1,18 +1,18 @@
 
-<h3>Customer Details:</h3>
+<h3>Reciever Details:</h3>
 <form [formGroup]="formGroup" class="form">
 <!-- <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)" class="form"> -->
-    <ng-template matStepLabel>Customer Details</ng-template>
+    <ng-template matStepLabel>Receiver Details</ng-template>
       <mat-form-field class="full-width">
-        <input matInput placeholder="recieverName" formControlName="recieverName">
+        <input matInput placeholder="Name" formControlName="recieverName">
         <mat-error *ngIf="!recieverName.valid && recieverName.touched">
           {{ titleAlert }}
         </mat-error>
       </mat-form-field>
       <br>
       <mat-form-field class="full-width">
-        <input matInput placeholder="Email address" formControlName="recieverEmai">
-        <mat-error *ngIf="!formGroup.controls['recieverEmai'].valid && formGroup.controls['recieverEmai'].touched">
+        <input matInput placeholder="Email address" formControlName="recieverEmail">
+        <mat-error *ngIf="!formGroup.controls['recieverEmail'].valid && formGroup.controls['recieverEmail'].touched">
           {{ getErrorEmail() }}
         </mat-error>
       </mat-form-field>
@@ -28,12 +28,12 @@
         <table class="full-width" cellspacing="0"><tr>
             <td><mat-form-field class="full-width">
                 <mat-label>Select city</mat-label>
-                <mat-select [formControl]="selectCity2" formControlName="selectCity2" required>
+                <mat-select formControlName="selectDropCity" required>
                 <mat-option *ngFor="let city of cities" [value]="city.recieverName">
                     {{city.viewName}}
                 </mat-option>
                 </mat-select>
-                <mat-error *ngIf="selectCity2.hasError('required')">Please choose an city</mat-error>
+                <mat-error *ngIf="selectDropCity.hasError('required')">Please choose an city</mat-error>
             </mat-form-field></td>
             <td><mat-form-field class="full-width">
               <mat-label>State</mat-label>
@@ -54,7 +54,10 @@
     <!-- <app-text-input (outputText)="change($event)"></app-text-input> -->
     <!-- " -->
     <div>
-      <button mat-button matStepperNext>Next</button>
+      <div class="controls">
+        <button mat-stroked-button color="primary" matStepperPrevious>Back</button>
+        <button mat-raised-button color="primary" matStepperNext>Next</button>
+    </div>
     </div>
   </form>
   

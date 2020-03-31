@@ -13,7 +13,7 @@ import { Step1Component } from './new-order/step1/step1.component';
 import { Step2Component } from './new-order/step2/step2.component';
 import { Step3Component } from './new-order/step3/step3.component';
 import { TextInputComponent } from './new-order/text-input/text-input.component';
-
+import { ConfirmDialog } from "./new-order/step3/step3.component";
 @NgModule({
     imports: [
         ReactiveFormsModule,
@@ -21,6 +21,7 @@ import { TextInputComponent } from './new-order/text-input/text-input.component'
         FormsModule,
      ],
     declarations: [
+        ConfirmDialog,
         NewOrderComponent,
         TrackOrderComponent,
         ContactUsComponent,

@@ -13,3 +13,11 @@
   td {
     padding-right: 8px;
   }
+  button {
+    margin-left: 20px;
+  }
+  .controls {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
