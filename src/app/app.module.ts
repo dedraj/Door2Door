@@ -6,8 +6,9 @@ import { AppComponent } from './app.component';
 import { CustomMaterialModule } from './config/material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { PagesModule } from './pages'; 
+import { PagesModule } from './pages/pages.module'; 
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { ComponentsModule } from './components/components.module';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     AppRoutingModule,
     BrowserAnimationsModule,
     CustomMaterialModule,
+    ComponentsModule,
     PagesModule,
     ReactiveFormsModule,
     FormsModule,

@@ -1,0 +1,60 @@
+<form [formGroup]="formGroup" class="form">
+    <!-- <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)" class="form"> -->
+        <ng-template matStepLabel>Customer Details</ng-template>
+          <mat-form-field class="full-width">
+            <input matInput maxlength="20" placeholder="Name" formControlName="name">
+            <mat-error *ngIf="!name.valid && name.touched">
+              {{ titleAlert }}
+            </mat-error>
+          </mat-form-field>
+          <br>
+          <mat-form-field class="full-width">
+            <input matInput maxlength="50" placeholder="Email address" formControlName="email">
+            <mat-error>
+              {{ getError("email") }}
+            </mat-error>
+          </mat-form-field>
+          <br>
+          <mat-form-field class="full-width">
+            <mat-label>Telephone</mat-label>
+            <span matPrefix>+91 &nbsp;</span>
+            <input type="tel" matInput maxlength="10" placeholder="9675846573" formControlName="telephone">
+            <mat-icon matSuffix>mode_edit</mat-icon>
+            <mat-error>{{ getError("telephone") }}</mat-error>
+          </mat-form-field>
+          <br> 
+            <br>
+            <table class="full-width" cellspacing="0"><tr>
+                <td><mat-form-field class="full-width">
+                    <mat-label>Select city</mat-label>
+                    <mat-select formControlName="city">
+                    <mat-option *ngFor="let city of cities" [value]="city.name">
+                        {{city.viewName}}
+                    </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="city.hasError('required')">Please choose an city</mat-error>
+                </mat-form-field></td>
+                <td><mat-form-field class="full-width">
+                  <mat-label>State</mat-label>
+                  <input matInput maxlength="20" placeholder="Ex. Sikar" formControlName="state">
+                  <mat-error>{{ getError("state") }}</mat-error>
+                </mat-form-field></td>
+                <td><mat-form-field class="full-width">
+                  <mat-label>Postal Code</mat-label>
+                  <input matInput #postalCode maxlength="6" placeholder="Ex. 332301" value="94043" formControlName="zip">
+                  <mat-error>{{ getError("zip") }}</mat-error>
+                  <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>
+                </mat-form-field></td>
+              </tr></table>
+              <br>
+          <mat-form-field class="full-width">
+            <mat-label>Address</mat-label>
+            <textarea #address matInput maxlength="100" placeholder="Ex. 100 Main St" formControlName="address"></textarea>
+            <mat-hint align="end">{{address.value.length}} / 100</mat-hint>
+            <mat-error>{{ getError("address") }}</mat-error>
+          </mat-form-field>
+          <br>
+        <!-- <app-text-input (outputText)="change($event)"></app-text-input> -->
+        <!-- " -->
+        {{checkValidity()}}
+      </form>

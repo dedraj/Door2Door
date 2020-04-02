@@ -1,4 +1,5 @@
 .container {
+    margin-top: 25px;
     display: flex;
     justify-content: center;
     align-content: center;
@@ -6,3 +7,13 @@
 .step-title {
     pointer-events: none !important; /**<-----------*/
   }
+button{
+    margin: 15px auto;
+}
+.card{
+    margin-top: 25px;
+}
+.header-image{
+    background-image: url('https://ya-webdesign.com/transparent450_/success-png-icon-7.png');
+  background-size: cover;
+}

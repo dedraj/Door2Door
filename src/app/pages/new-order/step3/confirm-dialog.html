@@ -3,36 +3,26 @@
   My Order status is:
   <ul>
     <li>
-      <span *ngIf="data.status === 'recieved'">&#10003;</span>Request recievded
+      <span *ngIf="data.status === 'confirm'">&#10003;</span>Request recievded
     </li>
     <li>
-      <span *ngIf="data.status === 'dispatched'">&#10003;</span> Unicorn
-    </li>
-    <li>
-      <span *ngIf="data.status === 'delivered'">&#10003;</span> Lion
+      <span *ngIf="data.status === 'canceled'">&#10003;</span> Unicorn
     </li>
   </ul>
 </div> -->
-<div mat-dialog-content>
-  <mat-horizontal-stepper [linear]="true">
-    <mat-step label="Recieved" state="phone" >
-      <p>Your Order is Recieved</p>
-    </mat-step>
-    <mat-step label="Dispatched" state="chat">
-      <p>Order Dispatched</p>
-    </mat-step>
-    <mat-step label="Delivered" done="true  ">
-      <p>Your order Delivered</p>
-    </mat-step>
-  
-    <!-- Icon overrides. -->
-    <ng-template matStepperIcon="phone">
-      <mat-icon>call_end</mat-icon>
-    </ng-template>
-    <ng-template matStepperIcon="chat">
-      <mat-icon>forum</mat-icon>
-    </ng-template>
-  </mat-horizontal-stepper>
-  <button mat-raised-button color="primary" (click)="goForward(data)">Submit</button>
+<h2 mat-dialog-title>Confirm Order</h2>
+<!-- {{dataa.formValues|json}} -->
+<h1> approx. cost of the delivery: {{getCost}}</h1>
+<!-- {{this.formService.customerForm.value | json}}
+<br>
+  {{this.formService.recieverForm.value | json}}
+<br>
+{{this.formService.packageForm.value | json}}
+<br> -->
 
-</div>  
+<mat-dialog-actions align="end">
+  <button mat-button (click)="doReset(data)">New Order</button>
+  <button mat-button (click)="doClose()">Cancel</button>
+  <button mat-button (click)="goForward(data)" cdkFocusInitial>Confirm</button>
+  <!-- <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Confirm</button> -->
+</mat-dialog-actions>

@@ -18,49 +18,53 @@ export class FormService {
   private step3Source: Subject<FormGroup> = new Subject();
   step3: Observable<FormGroup> = this.step3Source.asObservable();
 
-  mainForm: FormGroup = this._formBuilder.group({
-    name:'ah',
-    email:'',
-    extraName: '',
-    telephone1:'',
-    state1:'',
-    zip1:'',
-    address1:'',
-    address: ''
+  
+  customerForm: FormGroup = this._formBuilder.group({
   })
+  recieverForm: FormGroup = this._formBuilder.group({
+  })
+  packageForm: FormGroup = this._formBuilder.group({
+  })
+  // mainForm: FormGroup = this._formBuilder.group({
+  //   update:'',...this.customerForm.value,...this.recieverForm.value,...this.packageForm.value
+  // })
   constructor(
     private _formBuilder: FormBuilder
   ) {
-    let m= this.mainForm.value
+    // let u= this.mainForm.value
+    let c= this.customerForm.value
+    let r= this.recieverForm.value
+    let p= this.packageForm.value
     this.step1.subscribe(form =>
       form.valueChanges.subscribe(val => {
-        console.log(m)
+        let m= c
+        console.log(m) 
         m.name = val.name
         m.email = val.email
-        m.telephone1=val.telephone1
-        m.selectPickupCity=val.selectPickupCity
-        m.state1=val.state1
-        m.zip1=val.zip1
-        m.address1=val.address1
-        m.extraName = val.extraName
+        m.telephone=val.telephone
+        m.city=val.city
+        m.state=val.state
+        m.zip=val.zip
+        m.address=val.address
       })
     )
     this.step2.subscribe(form =>
       form.valueChanges.subscribe(val => {
         // console.log(val)
+        let m= r
         m.address = val.address
-        m.recieverName = val.recieverName
-        m.recieverEmail = val.recieverEmail
-        m.telephone2=val.telephone2
+        m.name = val.name
+        m.email = val.email
+        m.telephone=val.telephone
         m.selectDropCity=val.selectDropCity
-        m.state2=val.state2
-        m.zip2=val.zip2
-        m.address2=val.address2
-        m.extraName = val.extraName
+        m.state=val.state
+        m.zip=val.zip
+        m.address=val.address
       })
     )
     this.step3.subscribe(form =>
       form.valueChanges.subscribe(val => {
+        let m=p
         m.length= val.length
         m.breadth= val.breadth
         m.height= val.height

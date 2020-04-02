@@ -25,19 +25,19 @@
             <span matSuffix>kg</span>
           </mat-form-field></td>
       </tr></table>
-      <mat-form-field>
+      <mat-form-field class="full-width">
         <mat-label>Delivery Mode</mat-label>
-        <mat-select formControlName="dMode" required>
-          <mat-option value="express">Express</mat-option>
-          <mat-option value="reguler">Regular</mat-option>
+        <mat-select formControlName="dMode">
+          <mat-option class="full-width" value="express">Express</mat-option>
+          <mat-option class="full-width" value="reguler">Regular</mat-option>
         </mat-select>
         <mat-hint align="end">Select your delivery mode</mat-hint>
       </mat-form-field>
     <!-- <app-text-input (outputText)="change($event)"></app-text-input> -->
     <!-- " -->
     <div class="controls">
-        <button mat-stroked-button color="primary" matStepperPrevious>Back</button>
-        <button mat-raised-button color="primary" (click)="openDialog(stepper,checker)">Submit</button>
+        <button mat-stroked-button color="primary" (click)="goBack()">Back</button>
+        <button mat-raised-button color="primary" (click)="openDialog(stepper,checker)" [disabled]="!checkValidity()">Submit</button>
     </div>
   </form>
   

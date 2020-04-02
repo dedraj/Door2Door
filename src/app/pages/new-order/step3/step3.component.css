@@ -8,12 +8,17 @@
   }
   .full-width {
     width: 100%;
+    text-align: center;
   }
-  
+  .dimention{
+    width: 100%;
+    margin-top: 10px;
+  }
   td {
     padding-right: 18px;
   }
   button {
+    margin-top: 10px;
     margin-left: 20px;
   }
   .controls {
